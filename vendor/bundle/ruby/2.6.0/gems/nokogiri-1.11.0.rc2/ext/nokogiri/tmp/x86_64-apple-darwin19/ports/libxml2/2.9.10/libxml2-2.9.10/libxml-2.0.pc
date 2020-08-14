@@ -1,0 +1,13 @@
+prefix=/Users/admin/Sites/Samsung Campus/castor/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.11.0.rc2/ports/x86_64-apple-darwin19/libxml2/2.9.10
+exec_prefix=${prefix}
+libdir=/Users/admin/Sites/Samsung Campus/castor/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.11.0.rc2/ports/x86_64-apple-darwin19/libxml2/2.9.10/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.9.10
+Description: libXML library version2.
+Requires:
+Libs: -L${libdir} -lxml2
+Libs.private:  -lpthread -lz -L/usr/local/Cellar/xz/5.2.4/lib -llzma  -liconv -lm  
+Cflags: -I${includedir}/libxml2 
