@@ -1,14 +1,16 @@
-# app/views/books/index.html.erb
-
-<%= form_tag '/books', method: 'post' do %>
-  <input type="text" name="title"/>
-  <select name="category_id">
-    <% @categories.each do |category| %>
-      <option value="<%= category.id %>"><%= category.name %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Ajouter le livre"/>
-<% end %>
+<%= image_tag "logo.png", alt: "LOGO", width: 100, height: 100 %>
+<div style="display: flex"><%= form_tag '/books', method: 'post' do %>
+    <input type="text" name="title" placeholder="Titre du livre" />
+    <select name="category_id">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Ajouter le livre"/>
+  <% end %>
+  <%= form_tag "/books/", method: "delete" do %>
+    <input type="submit" value="Supprimer tous les livres"/>
+  <% end %></div>
 
 
 <h1>Liste des livres</h1>
@@ -16,4 +18,3 @@
 <% @books.each do |book| %>
   <p><%= book_link book %></p>
 <% end %>
-

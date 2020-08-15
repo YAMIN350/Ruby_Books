@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Castor</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Castor</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+<% if flash[:destroy_all] %>
+  <div style="background-color: red; border-radius: 10px; padding: 10px; width: 15%"><%= flash[:destroy_all] %></div>
+<% end %>
+<% if flash[:success] %>
+  <div style="background-color: #1ad027; border-radius: 10px; padding: 10px; width: 15%"><%= flash[:success] %></div>
+<% end %>
+
+<%= yield %>
+</body>
 </html>
