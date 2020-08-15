@@ -3,7 +3,10 @@
 
 <%= form_tag "/books/#{@book.id}", method: "patch" do %>
   <input type="text" name="title" value="<%= @book.title %>"/>
-  <p><%= @book.errors[:title].first %></p>
+
+  <% if @book.errors[:title].first %>
+    <p style="background-color:#DADADA;border-radius:10px;padding: 10px; width: 20%"><%= @book.errors[:title].first %></p>
+  <% end %>
   <input type="submit" value="Modifier le livre"/>
 <% end %>
 

@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
   #pour gerer les sessions active go to application_controller.rb
 
+
   def home
   end
+
+  def homeSignup
+    return render 'users/signup'
+  end
+
+  def signup
+    User.create name: params[:name], password: params[:password]
+    flash[:signup] = "Votre compte à bien été crée, veuillez vous connecter !"
+    redirect_to '/login'
+  end
+
 
   def login
   end

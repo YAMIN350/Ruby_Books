@@ -18,7 +18,9 @@
       <input type="submit" value="Déconnexion"/>
     <% end %></div>
 <% end %>
-
+<% if flash[:signup] %>
+  <div style="background-color: #1ad027; width: 20%; padding: 10px; border-radius: 10px;"><%= flash[:signup] %></div>
+<% end %>
 <% if flash[:destroy_all] %>
   <div style="background-color: red; border-radius: 10px; padding: 10px; width: 15%"><%= flash[:destroy_all] %></div>
 <% end %>
@@ -26,8 +28,9 @@
   <div style="background-color: #1ad027; border-radius: 10px; padding: 10px; width: 15%"><%= flash[:success] %></div>
 <% end %>
 
-<div><%= flash[:info] %></div>
-
+<% if flash[:info] %>
+  <div style="background-color: #9b9877; padding: 10px; width: 20%; border-radius: 10px"><%= flash[:info] %></div>
+<% end %>
 <%= yield %>
 </body>
 </html>
