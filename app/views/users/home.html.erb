@@ -1,0 +1,6 @@
+# app/views/users/home.html.erb
+<% if @current_user %>
+<% else %>
+  <h1>Bienvenue visiteur anonyme !</h1>
+  <a href="/login">S'identifier</a>
+<% end %>

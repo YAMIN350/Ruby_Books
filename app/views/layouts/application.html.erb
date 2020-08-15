@@ -11,12 +11,22 @@
 
 <body>
 
+<% if @current_user %>
+  <div style="display: flex">
+    <h1>Bienvenue Mr <%= @current_user.name %> !</h1>
+    <%= form_tag "/login", method: :delete do %>
+      <input type="submit" value="Déconnexion"/>
+    <% end %></div>
+<% end %>
+
 <% if flash[:destroy_all] %>
   <div style="background-color: red; border-radius: 10px; padding: 10px; width: 15%"><%= flash[:destroy_all] %></div>
 <% end %>
 <% if flash[:success] %>
   <div style="background-color: #1ad027; border-radius: 10px; padding: 10px; width: 15%"><%= flash[:success] %></div>
 <% end %>
+
+<div><%= flash[:info] %></div>
 
 <%= yield %>
 </body>
